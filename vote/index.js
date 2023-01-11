@@ -31,7 +31,7 @@ if (NODE_ENV == 'development') {
     app.use(livereload())
 }
 
-// https://stackoverflow.com/a/1527820 
+// https://stackoverflow.com/a/1527820
 function randInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min
 }
@@ -39,10 +39,10 @@ function randInt(min, max) {
 app.get('/', async (req, res) => {
     try {
         res.render('index')
-        
+
     } catch (err) {
         return res.json({
-            code: err.code, 
+            code: err.code,
             message: err.message
         })
     }
@@ -66,7 +66,7 @@ app.post('/vote', async (req, res) => {
     try {
         console.log('POST /vote: %j', req.body)
         return res.send({ success: true, result: 'hello' })
-        
+
     } catch (err) {
         console.log('ERROR: POST /vote: %s', err.message || err.response || err);
         res.status(500).send({ success: false, reason: 'internal error' });
@@ -76,3 +76,4 @@ app.post('/vote', async (req, res) => {
 app.listen(WEBSITE_PORT, () => {
     console.log(`listening on port ${WEBSITE_PORT}`)
 })
+
